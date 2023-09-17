@@ -1,13 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.confeitariaCelestial.DAO;
 
-/**
- *
- * @author diogo
- */
+import br.confeitariaCelestial.DTO.Produto;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import java.sql.*;
+import java.util.ArrayList;
+
 public class ProdutoDAO {
-    
+    private Connection conexao;
+    private PreparedStatement pstm;
+    private ResultSet resultado;
+    private ArrayList<Produto> listadeprodutos = new ArrayList<>();
 }
