@@ -36,5 +36,13 @@ public class Produto {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
+    @Override
+    public String toString() {
+        return "Nome: "+nome+"\n"
+                + "Preço: "+preco+"\n"
+                + "Quantidade: "+quantidade;
+    }
+    
     
 }
