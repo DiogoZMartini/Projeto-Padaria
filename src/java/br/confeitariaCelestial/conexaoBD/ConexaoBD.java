@@ -15,7 +15,7 @@ public class ConexaoBD {
             String url = "jdbc:mysql://localhost:3306/(Banco)?user=root&password=";
             this.conexao = (Connection) DriverManager.getConnection(url);
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Erro  classe ConexaoBD  metodo getConexao() ==>"+e);
+            JOptionPane.showMessageDialog(null, "Erro classe ConexaoBD  metodo getConexao() ==>"+e);
         }
         return this.conexao;
     
