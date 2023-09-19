@@ -22,14 +22,29 @@ public class ProdutoDAO {
             pstm.setString(1, objProduto.getNome());
             pstm.setDouble(2, objProduto.getPreco());
             pstm.setInt(3, objProduto.getQuantidade());
+            pstm.execute();
+            pstm.close();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo cadastrarProduto()  ==> "+e);
         }
     }
 
-//Alteração do Produto
-    public void alterarProduto(Produto objProduto){
-        
+//Alteração do Produto por ID
+    public void alterarProduto(Produto objProduto) throws ClassNotFoundException{
+        String sql = "update (tabela)"
+                + "(campos) = ?"
+                + "where (campo do ID) = ?";
+        this.conexao = new ConexaoBD().getConexao();
+        try {
+            pstm = conexao.prepareStatement(sql);
+            pstm.setString(1, objProduto.getNome());
+            pstm.setDouble(2, objProduto.getPreco());
+            pstm.setInt(3, objProduto.getQuantidade());
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo alterarProduto()  ==> "+e);
+        }
     }
     
 //Exclusão do Produto
