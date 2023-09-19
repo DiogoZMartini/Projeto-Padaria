@@ -18,12 +18,13 @@ public class ProdutoDAO {
         String sql = "insert into (tabela)(campos) value(?,(quantidade de campos))";
         this.conexao = new ConexaoBD().getConexao();
         try{
-            pstm = conexao.prepareStatement(sql);
-            pstm.setString(1, objProduto.getNome());
-            pstm.setDouble(2, objProduto.getPreco());
-            pstm.setInt(3, objProduto.getQuantidade());
-            pstm.execute();
-            pstm.close();
+            this.pstm = conexao.prepareStatement(sql);
+            this.pstm.setString(1, objProduto.getNome());
+            this.pstm.setDouble(2, objProduto.getPreco());
+            this.pstm.setInt(3, objProduto.getQuantidade());
+            
+            this.pstm.execute();
+            this.pstm.close();
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo cadastrarProduto()  ==> "+e);
         }
@@ -36,20 +37,31 @@ public class ProdutoDAO {
                 + "where (campo do ID) = ?";
         this.conexao = new ConexaoBD().getConexao();
         try {
-            pstm = conexao.prepareStatement(sql);
-            pstm.setString(1, objProduto.getNome());
-            pstm.setDouble(2, objProduto.getPreco());
-            pstm.setInt(3, objProduto.getQuantidade());
-            pstm.execute();
-            pstm.close();
+            this.pstm = conexao.prepareStatement(sql);
+            this.pstm.setString(1, objProduto.getNome());
+            this.pstm.setDouble(2, objProduto.getPreco());
+            this.pstm.setInt(3, objProduto.getQuantidade());
+            
+            this.pstm.execute();
+            this.pstm.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo alterarProduto()  ==> "+e);
         }
     }
     
 //Exclusão do Produto
-    public void excluirProduto(Produto objProduto){
-        
+    public void excluirProduto(Produto objProduto) throws ClassNotFoundException{
+        String sql = "delite from (tabela) where (campo do ID) = ?";
+        this.conexao = new ConexaoBD().getConexao();
+        try {
+            this.pstm = conexao.prepareStatement(sql);
+            this.pstm.setInt(1, objProduto.getId());
+            
+            this.pstm.execute();
+            this.pstm.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo excluirProduto()  ==> "+e);
+        }
     }
     
 //Listagem de Produtos
