@@ -1,10 +1,12 @@
 package br.confeitariaCelestial.DAO;
 
 import br.confeitariaCelestial.DTO.Produto;
+import br.confeitariaCelestial.conexaoBD.ConexaoBD;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class ProdutoDAO {
 
@@ -14,8 +16,14 @@ public class ProdutoDAO {
     private ArrayList<Produto> listadeprodutos = new ArrayList<>();
 
 //Cadastro de Produto
-    public void cadastrarProduto(Produto objProduto) {
-
+    public void cadastrarProduto(Produto objProduto) throws ClassNotFoundException {
+        String stql = "insert into (tabela)(campos) value(?,(quantidade de campos))";
+        this.conexao = new ConexaoBD().getConexao();
+        try{
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo cadastrarProduto()  ==> "+e);
+        }
     }
 
 //Alteração do Produto
