@@ -108,7 +108,7 @@ public class ProdutoDAO {
                 this.pstm.close();
             }
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo pesquisarProdutoPorNome()  ==> "+e);
         }
         
