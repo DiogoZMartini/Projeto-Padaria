@@ -33,7 +33,7 @@ public class ProdutoDAO {
 //Alteração do Produto por ID
     public void alterarProduto(Produto objProduto) throws ClassNotFoundException{
         String sql = "update (tabela)"
-                + "(campos) = ?"
+                + "set (campo) = ?, set (campo) = ?, set (campo) = ?"
                 + "where (campo do ID) = ?";
         this.conexao = new ConexaoBD().getConexao();
         try {
@@ -51,7 +51,7 @@ public class ProdutoDAO {
     
 //Exclusão do Produto
     public void excluirProduto(Produto objProduto) throws ClassNotFoundException{
-        String sql = "delite from (tabela) where (campo do ID) = ?";
+        String sql = "delete from (tabela) where (campo do ID) = ?";
         this.conexao = new ConexaoBD().getConexao();
         try {
             this.pstm = conexao.prepareStatement(sql);
@@ -65,12 +65,53 @@ public class ProdutoDAO {
     }
     
 //Listagem de Produtos
-    public ArrayList<Produto> listarProditos(){
+    public ArrayList<Produto> listarProditos() throws ClassNotFoundException{
+        String sql = "SELECT * FROM (tabela)";
+        this.conexao = new ConexaoBD().getConexao();
+        try {
+            this.pstm = conexao.prepareStatement(sql);
+            this.resultado = this.pstm.executeQuery(sql);
+            
+            while (this.resultado.next()) {                
+                Produto objProduto = new Produto();
+                objProduto.setNome(this.resultado.getString("(Nome do Campo do Nome)"));
+                objProduto.setPreco(this.resultado.getDouble("(Nome do campo do Preço)"));
+                objProduto.setQuantidade(this.resultado.getInt("(Nome do campo da Quantia)"));
+                
+                this.listadeprodutos.add(objProduto);
+                this.pstm.execute();
+                this.pstm.close();
+            }   
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo listarProdutos()  ==> "+e);
+        }
+        
        return this.listadeprodutos; 
     }
     
 //Pesquisa de Produtos por Nome
-    public ArrayList<Produto> pesquisarProdutoPorNome(){
+    public ArrayList<Produto> pesquisarProdutoPorNome() throws ClassNotFoundException{
+        String sql = "SELECT * FROM (tabela) were (campo do Nome) = ?";
+        this.conexao = new ConexaoBD().getConexao();
+        try {
+            this.pstm = conexao.prepareStatement(sql);
+            this.resultado = this.pstm.executeQuery(sql);
+            
+            while (this.resultado.next()) {                
+                Produto objProduto = new Produto();
+                objProduto.setNome(this.resultado.getString("(Nome do campo do Nome"));
+                objProduto.setPreco(this.resultado.getDouble("(Nome do campo do Proço)"));
+                objProduto.setQuantidade(this.resultado.getInt("(Nome do campo da Quantidade)"));
+                
+                this.listadeprodutos.add(objProduto);
+                this.pstm.execute();
+                this.pstm.close();
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro classe PadariaDAO metodo pesquisarProdutoPorNome()  ==> "+e);
+        }
+        
         return this.listadeprodutos;
     }
 }
