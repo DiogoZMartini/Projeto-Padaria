@@ -15,11 +15,11 @@
                 </label>
                 <label>
                     Preço:
-                    <input type="number" name="txtPreco">
+                    <input type="number" name="numPreco">
                 </label>
                 <label>
                     Quantidade:
-                    <input type="number" name="txtQuantidade">
+                    <input type="number" name="numQuantidade">
                 </label>
                 <input type="submit" value="Cadastrar">
             </form>
