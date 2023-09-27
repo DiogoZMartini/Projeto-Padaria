@@ -1,27 +1,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Confeitaria Celestial</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <main id="cadastromain">
+        <main id="alterarmain">
             <h1></h1>
-            <form action="#" method="POST">
+            <form action="cadastro.jsp" method="POST">
                 <label>
                     Nome:
-                    <input type="text" name="txtNome">
+                    <input type="text" name="txtNome" value="<%=request.getParameter("nome")%>">
                 </label>
                 <label>
                     Preço:
-                    <input type="number" name="numPreco">
+                    <input type="number" name="numPreco" value="<%=request.getParameter("preco")%>">
                 </label>
                 <label>
                     Quantidade:
-                    <input type="number" name="numQuantidade">
+                    <input type="number" name="numQuantidade" value="<%=request.getParameter("quantidade")%>">
                 </label>
-                <input type="submit" value="Cadastrar">
+                <input type="submit" value="Alterar">
             </form>
             <div>
                 <a href="lista_produto_page.jsp"><button>Cancelar</button></a>

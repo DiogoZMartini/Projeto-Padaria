@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <meta http-equiv="refresh" content="0.001; (pagina da loja)">
+        <meta http-equiv="refresh" content="0.001; lista_produto_page.jsp">
     </head>
     <body>
         <%
