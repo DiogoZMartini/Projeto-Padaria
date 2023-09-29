@@ -1,9 +1,3 @@
-<%-- 
-    Document   : excluir_page
-    Created on : 29 de set. de 2023, 17:42:45
-    Author     : diogo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +9,10 @@
         <main id="excluirmain">
             <h1></h1>
             <form action="cadastro.jsp" method="POST">
+                <label>
+                    Id
+                    <input type="text" name="txtId" value="<%=request.getParameter("id")%>">
+                </label>
                 <label>
                     Nome:
                     <input type="text" name="txtNome" value="<%=request.getParameter("nome")%>">
